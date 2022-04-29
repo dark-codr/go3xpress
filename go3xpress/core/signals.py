@@ -43,7 +43,7 @@ def create_tracknumber(sender, instance, *args, **kwargs):
         Team Go3Xpress
         """
         message = get_template('mail/simple_mail.html').render(context={"subject": "Item Tracking Number", "body": mark_safe(body)})
-        plain_email(to_email=[instance.sender_email, "programmingtext@gmail.com"], subject="Item Tracking Number", body=message)
+        plain_email(to_email=instance.sender_email, subject="Item Tracking Number", body=message)
 
 @receiver(post_save, sender=Delivery)
 def post_save_signal(sender, instance, *args, **kwargs):
@@ -78,7 +78,7 @@ def post_save_signal(sender, instance, *args, **kwargs):
         Team Go3Xpress
         """
         message = get_template('mail/simple_mail.html').render(context={"subject": f"Item {instance.tracking} Delivered", "body": mark_safe(body)})
-        plain_email(to_email=[instance.sender_email, "programmingtext@gmail.com"], subject=f"Item {instance.tracking} Delivered", body=message)
+        plain_email(to_email=instance.sender_email, subject=f"Item {instance.tracking} Delivered", body=message)
 
     if instance.last_loc:
         DeliveryHistory.objects.create(delivery=instance, last_loc=instance.last_loc)
@@ -107,4 +107,4 @@ def post_save_signal(sender, instance, *args, **kwargs):
         Team Go3Xpress
         """
         message = get_template('mail/simple_mail.html').render(context={"subject": f"Item {instance.tracking} Arrived at {instance.last_loc}", "body": mark_safe(body)})
-        plain_email(to_email=[instance.sender_email, "programmingtext@gmail.com"], subject=f"Item {instance.tracking} Arrived at {instance.last_loc}", body=message)
+        plain_email(to_email=instance.sender_email, subject=f"Item {instance.tracking} Arrived at {instance.last_loc}", body=message)
