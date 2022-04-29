@@ -6,8 +6,8 @@ from django.core.management.base import BaseCommand
 from django.utils.translation import gettext_lazy as _
 
 # from requests_html import HTMLSession
-from darkcodr.utils.logger import LOGGER
-from darkcodr.core.models import Currency
+from go3xpress.utils.logger import LOGGER
+from go3xpress.core.models import Currency
 
 
 class Command(BaseCommand):
