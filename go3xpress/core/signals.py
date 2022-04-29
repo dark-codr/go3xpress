@@ -4,9 +4,10 @@ import datetime
 from django.core.mail import EmailMessage
 from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
-
+from django.template.loader import get_template
 
 from go3xpress.core.models import Delivery, DeliveryHistory
+from go3xpress.utils.emails import plain_email
 from go3xpress.utils.unique_generators import unique_tracking_generator
 
 
