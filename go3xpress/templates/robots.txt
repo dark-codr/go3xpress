@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/*
+Disallow: /portal/*
+Disallow: /users/*
+Disallow: /search/*
+Disallow: /jet/*
+Disallow: /tinymce/*

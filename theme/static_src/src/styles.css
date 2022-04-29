@@ -1,0 +1,15 @@
+@tailwind base;
+@layer base {
+  body {
+    @apply transition-all text-lg duration-700 ease-in-out font-raleway flex-none overflow-x-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-variant-2 scrollbar-track-gray-400 text-dark bg-white;
+  }
+}
+
+@tailwind components;
+@layer components {
+  .clear {
+    clear: both;
+  }
+}
+
+@tailwind utilities;

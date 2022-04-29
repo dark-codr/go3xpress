@@ -1,0 +1,16 @@
+{% if object %}
+<div id="main" class="w-full space-y-5 text-center py-20 border-y-2 border-y-white mx-auto">
+  <small class="block text-variant-2 text-sm font-bold">
+    {{object.departure_date|date:"d M, Y"}}
+  </small>
+  <h3 class="text-3xl md:text-4xl font-bold text-light">
+    {{object.item_name|upper}}
+  </h3>
+  <p class="text-light/60 text-base md:text-2xl block ">Item shipped by {{object.sender_name|title}}</p>
+  <a href="{% url 'item_detail' object.tracking %}" class=" mt-4 block  w-full py-3 hover:scale-105 duration-500 px-6 text-center bg-variant-2 text-white font-bold">View Details</a>
+</div>
+{% else %}
+<div class="w-full h-min text-center text-2xl text-variant-2">
+  no item catalogued for a delivery.
+</div>
+{% endif %}

@@ -1,0 +1,76 @@
+{% load static i18n compress%}<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}Go3xpress |{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Worldwide courier delivery service.">
+    <meta name="author" content="Gary Hales">
+
+    <link rel="icon" href="{% static 'images/logo.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&family=Poiret+One&family=Raleway:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;1,100;1,200&display=swap" rel="stylesheet">
+
+    {% block css %}
+    <!-- Your stuff: Third-party CSS libraries go here -->
+
+    <!-- This file stores project-specific CSS -->
+    {% compress css %}
+    <link href="{% static 'css/project.css' %}" rel="stylesheet">
+    {% endcompress %}
+    {% endblock %}
+    <!-- Le javascript
+    ================================================== -->
+    {# Placed at the top of the document so pages load faster with defer #}
+    {% block javascript %}
+      <!-- Bootstrap JS -->
+      <!-- Your stuff: Third-party javascript libraries go here -->
+      <script defer src="https://unpkg.com/htmx.org@1.7.0"></script>
+
+      <!-- alpinejs -->
+      <script defer src="https://unpkg.com/alpinejs@3.9.5/dist/cdn.min.js"></script>
+
+      <!-- place project specific Javascript in this file -->
+      {% compress js %}
+      <script defer src="{% static 'js/project.js' %}"></script>
+      {% endcompress %}
+
+      <script defer src="{% static 'js/iziToast.min.js' %}"></script>
+      <!-- FONTAWESOME -->
+      <script async src="https://kit.fontawesome.com/cb5449eda5.js" crossorigin="anonymous"></script>
+    {% endblock javascript %}
+
+  </head>
+
+  <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+
+
+    {% block nav %}
+    {% include "snippets/nav.html" %}
+    {% endblock nav %}
+
+    <main id="body" class="w-screen min-h-screen ">
+      {% block content %}
+
+      {% endblock content %}
+    </main>
+
+    {% block footer %}
+    {% include "snippets/footer.html" %}
+    {% endblock footer %}
+
+
+    {% block inline_javascript %}
+    {% comment %}
+    Script tags with only code, no src (defer by default). To run
+    with a "defer" so that you run inline code:
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {/* Run whatever you want */});
+    </script>
+    {% endcomment %}
+    {% endblock inline_javascript %}
+  </body>
+</html>

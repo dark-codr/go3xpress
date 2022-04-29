@@ -1,0 +1,14 @@
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<header class="bg-white fixed top-0 left-0 right-0 z-50 justify-between md:px-14 md:pr-14 pr-6 w-screen h-14 flex flex-row items-center object-center shadow-sm py-6">
+  <a href="{% url 'home' %}" class="flex flex-row items-center">
+    <img src="{% static 'images/logo.png' %}" alt="logo" class="h-10">
+    <h1 class="font-black text-2xl font-raleway text-dark-300">Go3<span class="text-variant-2">Xpress</span></h1>
+  </a>
+
+  <a href="mailto://hello@go3xpress.com" class="text-white text-base font-semibold bg-variant-2 py-2 rounded-sm shadow-md hover:shadow-sm duration-700 px-5">
+    {% trans "INQUIRE" %}
+  </a>
+</header>
+
