@@ -129,6 +129,7 @@ THIRD_PARTY_APPS = [
 
     'countries_plus',
     "django_htmx",
+    'tinymce',
 
     'rosetta',
     'parler',
