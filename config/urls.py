@@ -74,8 +74,8 @@ if settings.DEBUG:
 
         urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
 
-urlpatterns += [
-        path("<str:language>/<str:url>/", view=switch_language, name="language"),
+urlpatterns += i18n_patterns(
+        # path("<str:language>/<str:url>/", view=switch_language, name="language"),
         path("tracking/", view=verify_tracking, name="verify_tracking"),
         path("email/", view=verify_email, name="verify_email"),
-]
+)
