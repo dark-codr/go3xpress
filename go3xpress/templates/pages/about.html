@@ -28,7 +28,7 @@
           <div class="flex md:flex-row md:space-x-6 flex-col space-y-6 md:space-y-0">
             <input hx-get="{% url 'verify_email' %}" hx-target="#email" hx-trigger="keyup changed delay:1s" hx-swap="outerHTML" type="email" name="email" placeholder="name@mail.com" class="md:w-2/5 w-full bg-light text-dark placeholder:text-dark/40 autofill:text-variant-2 placeholder:text-base placeholder:font-semibold">
             <input hx-get="{% url 'verify_tracking' %}" hx-target="#result" hx-trigger="keyup changed delay:1s" hx-swap="outerHTML" type="text" name="tracking" placeholder="GX-XXXXX-XXXXX" class="md:w-2/5 w-full bg-light text-dark placeholder:text-dark/40 autofill:text-variant-2 placeholder:text-base placeholder:font-semibold">
-            <button hx-post="/{{LANGUAGE_CODE}}/search/?tracking={{tracking}}" hx-push-url="/{{LANGUAGE_CODE}}/search/?tracking={{tracking}}" hx-swap="outerHTML" hx-target="#main" class="md:w-1/5 w-full rounded-sm hover:shadow-md duration-500 bg-variant-2 text-white py-2 px-6">Search</button>
+            <button hx-post="/{{LANGUAGE_CODE}}/search/?tracking={{tracking}}" hx-push-url="/{{LANGUAGE_CODE}}/search/?tracking={{tracking}}" hx-swap="outerHTML" hx-target="#main" class="md:w-1/5 w-full rounded-sm hover:shadow-md duration-500 bg-variant-2 text-white py-2 px-3">Search</button>
           </div>
           <small class="block text-sm font-bold text-variant-2" id="email"></small>
           <small class="block text-sm font-bold text-variant-2" id="result"></small>
@@ -41,7 +41,7 @@
   </div>
 </section>
 
-<section class="w-screen h-min py-6 px-6 md:px-14 bg-dark-300 space-y-6">
+<section class="w-screen h-min py-6 px-3 md:px-14 bg-dark-300 space-y-6">
   <div class="w-full space-y-5 text-left">
     <small class="block text-variant-2 text-sm font-bold">
       TRACKING
@@ -54,7 +54,7 @@
   {% include "pages/search.html" %}
 
 </section>
-<section class="w-screen h-min py-32 px-6 md:px-14 space-y-10">
+<section class="w-screen h-min py-32 px-3 md:px-14 space-y-10">
   <div class="w-full space-y-5 text-center">
     <small class="block text-variant-2 text-sm font-bold">
       SHIPPING
@@ -70,7 +70,7 @@
   </div>
 </section>
 
-<section class="bg-dark w-screen h-min py-20 px-6 md:px-14 text-light space-y-6">
+<section class="bg-dark w-screen h-min py-20 px-3 md:px-14 text-light space-y-6">
   <div class="space-y-6">
     <h4 class="text-3xl md:text-4xl font-bold">We offer services that fit your needs</h4>
     <p class="text-light/60 text-base md:text-2xl">From personal needs to platform integrations, we are ready to work with you.</p>

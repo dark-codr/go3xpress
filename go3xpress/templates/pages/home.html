@@ -12,7 +12,7 @@
   <div class="order-2 md:order-1 md:w-2/4 w-[calc(100%_-_64px)] relative mx-auto md:mx-0 md:right-14 md:left-14 top-0 h-full items-start object-center flex-col flex">
     <div class="absolute w-full h-min left-[50%] top-[50%] transform -translate-x-1/2 -translate-y-1/2 space-y-5">
       <h1 class="whitespace-normal font-black light flex object-center font-raleway md:text-6xl text-3xl tracking-wider">
-        {% trans 'Deliveries For Everyone Across Every Border' %}
+        {% trans 'Fast Deliveries For Everyone Across Every Border' %}
       </h1>
       <div class="w-20 h-1 bg-dark-300"></div>
       <!-- <p class="text-light font-raleway tracking-wide block">
@@ -24,7 +24,7 @@
       </h2>
 
       <div class="md:flex items-center space-y-4 md:space-y-0 md:space-x-6 pt-6 md:pt-14">
-        <button class="hover:shadow-md w-full md:w-1/3 flex-none bg-variant-2 rounded-xl py-4 px-6 font-black font-raleway hover:scale-105 focus:scale-105 duration-[400ms] ease-linear">
+        <button class="hover:shadow-md w-full md:w-1/3 flex-none bg-variant-2 rounded-xl py-4 px-3 font-black font-raleway hover:scale-105 focus:scale-105 duration-[400ms] ease-linear">
           <a href="tel://+12017759649" class="text-white font-bold tracking-wider block">
             {% trans 'Call For More' %}
           </a>
@@ -37,7 +37,7 @@
   </div>
 </section>
 
-<section class="w-screen h-min py-6 px-6 md:px-14 bg-dark-300 space-y-6">
+<section class="w-screen h-min py-6 px-3 md:px-14 bg-dark-300 space-y-6">
   <div class="w-full space-y-5 text-left">
     <small class="block text-variant-2 text-sm font-bold">
       TRACKING
@@ -51,14 +51,14 @@
     <div class="flex md:flex-row md:space-x-6 flex-col space-y-6 md:space-y-0">
       <input hx-get="{% url 'verify_email' %}" hx-target="#email" hx-trigger="keyup changed delay:1s" hx-swap="outerHTML" type="email" name="email" placeholder="name@mail.com" class="md:w-2/5 w-full bg-light text-dark placeholder:text-dark/40 autofill:text-variant-2 placeholder:text-base placeholder:font-semibold">
       <input hx-get="{% url 'verify_tracking' %}" hx-target="#result" hx-trigger="keyup changed delay:1s" hx-swap="outerHTML" type="text" name="tracking" placeholder="GX-XXXXX-XXXXX" class="md:w-2/5 w-full bg-light text-dark placeholder:text-dark/40 autofill:text-variant-2 placeholder:text-base placeholder:font-semibold">
-      <button hx-post="/{{LANGUAGE_CODE}}/search/{{object.tracking}}" hx-push-url="/{{LANGUAGE_CODE}}/search/{{object.tracking}}" hx-swap="outerHTML" hx-target="#main" class="md:w-1/5 w-full rounded-sm hover:shadow-md duration-500 bg-variant-2 text-white py-2 px-6">Search</button>
+      <button type="button" hx-post="/{{LANGUAGE_CODE}}/search/{{object.tracking}}" hx-push-url="/{{LANGUAGE_CODE}}/search/{{object.tracking}}" hx-swap="outerHTML" hx-target="#main" class="md:w-1/5 w-full rounded-sm hover:shadow-md duration-500 bg-variant-2 text-white py-2 px-3">Search</button>
     </div>
     <small class="block text-sm font-bold text-variant-2" id="email"></small>
     <small class="block text-sm font-bold text-variant-2" id="result"></small>
   </form>
 </section>
 
-<section class="w-screen h-min py-32 px-6 md:px-14 space-y-10">
+<section class="w-screen h-min py-32 px-3 md:px-14 space-y-10">
   <div class="w-full space-y-5 text-center">
     <small class="block text-variant-2 text-sm font-bold">
       SHIPPING
@@ -74,7 +74,7 @@
   </div>
 </section>
 
-<section class="bg-dark w-screen h-min py-20 px-6 md:px-14 text-light space-y-6">
+<section class="bg-dark w-screen h-min py-20 px-3 md:px-14 text-light space-y-6">
   <div class="space-y-6">
     <h4 class="text-3xl md:text-4xl font-bold">We offer services that fit your needs</h4>
     <p class="text-light/60 text-base md:text-2xl">From personal needs to platform integrations, we are ready to work with you.</p>

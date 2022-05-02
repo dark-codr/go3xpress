@@ -7,7 +7,7 @@
     {{object.item_name|upper}}
   </h3>
   <p class="text-light/60 text-base md:text-2xl block ">Item shipped by {{object.sender_name|title}}</p>
-  <a href="{% url 'item_detail' object.tracking %}" class=" mt-4 block  w-full py-3 hover:scale-105 duration-500 px-6 text-center bg-variant-2 text-white font-bold">View Details</a>
+  <a href="{% url 'item_detail' object.tracking %}" class=" mt-4 block  w-full py-3 hover:scale-105 duration-500 px-3 text-center bg-variant-2 text-white font-bold">View Details</a>
 </div>
 {% else %}
 <div class="w-full h-min text-center text-2xl text-variant-2">
