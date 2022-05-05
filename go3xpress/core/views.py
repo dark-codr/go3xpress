@@ -33,7 +33,7 @@ def compress_whitespace(s):
     return " ".join(s.split())
 
 def privacy(request):
-    page = Privacy.objects.filter(active=True).first()
+    page = Privacy.objects.filter(is_active=True).first()
     return render(request, "pages/privacy.html", context={'page':page})
 
 def item_detail(request, tracking):
