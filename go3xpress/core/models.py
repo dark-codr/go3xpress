@@ -54,6 +54,18 @@ from tinymce import HTMLField
 def get_date():
     return timezone.now()
 
+class Privacy(TimeStampedModel):
+    title = CharField(max_length=255, unique=True)
+    content = HTMLField(blank=True, null=True)
+    is_active = BooleanField(default=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Privacy"
+        verbose_name_plural = "Privacy"
+
 class Delivery(TimeStampedModel):
     SERVICES = (
         ('Confidential Doc', 'Documents'),

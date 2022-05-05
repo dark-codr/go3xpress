@@ -24,13 +24,17 @@ from django.views.generic import DetailView, RedirectView, UpdateView, CreateVie
 
 from go3xpress.utils.logger import LOGGER
 
-from .models import Delivery, DeliveryHistory
+from .models import Delivery, DeliveryHistory, Privacy
 
 devnull = open(os.devnull, "w")
 
 
 def compress_whitespace(s):
     return " ".join(s.split())
+
+def privacy(request):
+    page = Privacy.objects.filter(active=True).first()
+    return render(request, "pages/privacy.html", context={'page':page})
 
 def item_detail(request, tracking):
     item = get_object_or_404(Delivery, tracking=tracking)

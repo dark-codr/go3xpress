@@ -3,8 +3,11 @@ from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from parler.admin import TranslatableAdmin
 from go3xpress.utils.export_as_csv import ExportCsvMixin
-from .models import Currency, Delivery, DeliveryHistory
+from .models import Currency, Delivery, DeliveryHistory, Privacy
 
+
+admin.site.register(Privacy)
+admin.site.register(DeliveryHistory)
 class CurrencyAdmin(admin.ModelAdmin, ExportCsvMixin):
     list_display = ('code', 'symbol', 'price', 'created', 'modified')
     list_filter = ('created', 'modified')

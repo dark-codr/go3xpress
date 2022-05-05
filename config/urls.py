@@ -11,7 +11,7 @@ from django.utils.translation import gettext_lazy as _
 
 from config.sitemaps import StaticViewSitemap
 
-from go3xpress.core.views import switch_language, item_detail, verify_tracking, verify_email, home, delivery_list
+from go3xpress.core.views import privacy, switch_language, item_detail, verify_tracking, verify_email, home, delivery_list
 
 sitemaps = {
     "static": StaticViewSitemap,
@@ -25,6 +25,7 @@ urlpatterns = i18n_patterns(
     path(
         "delivery/<tracking>/", view=item_detail, name="item_detail"
     ),
+    path("privacy/", view=privacy, name="privacy"),
     # Django Admin, use {% url 'admin:index' %}
     path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
     path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
