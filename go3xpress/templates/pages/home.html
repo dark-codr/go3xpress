@@ -12,7 +12,7 @@
   <div class="order-2 md:order-1 md:w-2/4 w-[calc(100%_-_64px)] relative mx-auto md:mx-0 md:right-14 md:left-14 top-0 h-full items-start object-center flex-col flex">
     <div class="absolute w-full h-min left-[50%] top-[50%] transform -translate-x-1/2 -translate-y-1/2 space-y-5">
       <h1 class="whitespace-normal font-black light flex object-center font-raleway md:text-6xl text-3xl tracking-wider">
-        {% trans 'Fast & Safe Deliveries Across All Border' %}
+        {% trans 'Safe Deliveries Across All Border' %}
       </h1>
       <div class="w-20 h-1 bg-dark-300"></div>
       <!-- <p class="text-light font-raleway tracking-wide block">
@@ -58,7 +58,7 @@
   </form>
 </section>
 
-<section class="w-screen h-min py-32 px-3 md:px-14 space-y-10">
+<section class="w-screen h-min py-32 px-3 md:px-14 space-y-10 relative">
   <div class="w-full space-y-5 text-center">
     <small class="block text-variant-2 text-sm font-bold">
       SHIPPING
@@ -69,8 +69,8 @@
     <p class="text-dark-300/60 text-base md:text-2xl">Request a pickup or delivery from you or from a sender and we'll get it <br>delivered to where you need it to go.</p>
   </div>
 
-  <div class="w-full h-min overflow-hidden ">
-    <img src="{% static 'images/countries.jpg' %}" alt="countries" class="w-full object-conver">
+  <div class="w-full h-full overflow-hidden absolute top-0 left-0 right-0">
+    <img src="{% static 'images/map.png' %}" alt="countries" class="w-full object-cover">
   </div>
 </section>
 
