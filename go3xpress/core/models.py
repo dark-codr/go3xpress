@@ -104,6 +104,8 @@ class Delivery(TimeStampedModel):
     departure_date = DateTimeField(_("Departure date"), default=get_date)
     delivered_date = DateTimeField(_("Arrival date"), default=get_date)
 
+    cost = DecimalField(_("Shipping Cost"), decimal_places=2, max_digits=20, default=0.00)
+
 
     delivered = BooleanField(default=False)
     delayed = BooleanField(default=False)
@@ -117,6 +119,8 @@ class Delivery(TimeStampedModel):
             self.delayed = True
             self.save()
             return True
+        else:
+            return False
 
 
     class Meta:

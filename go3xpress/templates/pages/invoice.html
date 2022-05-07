@@ -3,20 +3,19 @@
 {% get_current_language as LANGUAGE_CODE %}
 
 {% block title %}
-{{ block.super }} {{ object.item_name|upper }}
+{{ object.item_name|upper }} - Invoice NO: 2554{{object.id}}
 {% endblock title %}
 
+{% block footer %}
+
+{% endblock footer %}
+
 {% block content %}
-<section class="relative w-screen h-min py-10 px-3 md:px-14 bg-variant-2">
-  <div class="w-full h-min text-white pt-20">
-    <h1 class="text-3xl font-black flex flex-row items-start space-x-4"><span class="block">{{ object.item_name|upper }}</span> <span class="text-sm text-white/80 block"><strong class="block">Departed on</strong><small class="block">{{object.departure_date|date:"d M, Y"}}</small></span></h1>
-  </div>
-</section>
 <section class="md:flex md:flex-row flex-col md:space-y-0 space-y-6 md:space-x-6 px-3 md:px-14 py-32">
-  <div id="pdf" class="bg-variant-2 text-white md:w-1/4 w-full rounded-md shadow-md p-6 space-y-4">
-    <h2 class="text-2xl font-dark text-white flex flex-row items-center justify-between"><span class="block">ITEM DETAILS</span><a class="block" href="{% url 'invoice' object.tracking %}"><svg id="print" xmlns="http://www.w3.org/2000/svg" title="Print Receipt" class="h-7 w-7 font-normal block hover:scale-105 duration-500 cursor-pointer" viewBox="0 0 20 20" fill="currentColor">
+  <div id="pdf" class="bg-variant-2 text-white md:w-3/4 mx-auto w-full rounded-md shadow-md p-6 space-y-4">
+    <h2 class="text-2xl font-dark text-white flex flex-row items-center justify-between"><span class="block">ITEM DETAILS</span><svg onclick="window.print()" xmlns="http://www.w3.org/2000/svg" title="Print Receipt" class="h-7 w-7 font-normal block hover:scale-105 duration-500 cursor-pointer" viewBox="0 0 20 20" fill="currentColor">
       <path fill-rule="evenodd" d="M5 4v3H4a2 2 0 00-2 2v3a2 2 0 002 2h1v2a2 2 0 002 2h6a2 2 0 002-2v-2h1a2 2 0 002-2V9a2 2 0 00-2-2h-1V4a2 2 0 00-2-2H7a2 2 0 00-2 2zm8 0H7v3h6V4zm0 8H7v4h6v-4z" clip-rule="evenodd" />
-    </svg></a></h2>
+    </svg></h2>
     <div class="space-y-2 w-full h-min pb-6 pt-6 border-t-2">
       <div class="w-full justify-between flex items-center">
         <strong class="flex text-base font-black">NAME</strong>
@@ -78,30 +77,5 @@
 
     </div>
   </div>
-
-  <div class="bg-variant-2/60 text-dark md:flex-grow w-full rounded-md shadow-md p-6 space-y-4">
-    <h2 class="text-2xl font-dark">ITEM LOCATION HISTORY</h2>
-    <div class="space-y-2 w-full h-min pb-6 pt-6 border-t-2">
-      <div class="w-full justify-between flex items-center border-b-2 pb-3">
-        <strong class="flex text-base font-black">CURRENT LOC.</strong>
-        <span class="flex">{{object.last_loc|title}}</span>
-      </div>
-      {% for it in track_history %}
-      <div class="w-full justify-between flex items-center last:border-b-2 last:pb-3">
-        <strong class="flex text-base font-black">LAST LOC {{forloop.counter}}.</strong>
-        <span class="flex">{{it.last_loc}}</span>
-        <span class="flex">{{it.date|date:"d M, Y"}}</span>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-
 </section>
 {% endblock content %}
-
-{% block inline_javascript %}
-<script>
-  let width = "580px"
-  let height = "700px"
-</script>
-{% endblock inline_javascript %}

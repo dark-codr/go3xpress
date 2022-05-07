@@ -45,6 +45,14 @@ def item_detail(request, tracking):
     }
     return render(request, 'pages/detail.html', context)
 
+def invoice_detail(request, tracking):
+    item = get_object_or_404(Delivery, tracking=tracking)
+    context = {
+        'object': item,
+    }
+    return render(request, 'pages/invoice.html', context)
+
+
 def home(request):
     email = request.POST.get('email')
     tracking = request.POST.get('tracking')

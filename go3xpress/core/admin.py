@@ -36,13 +36,15 @@ class DeliveryAdmin(admin.ModelAdmin, ExportCsvMixin):
         '__str__',
         "item_name",
         "last_loc",
+        "cost",
         # "variation_active",
         "delivered",
     ]
     list_display_links = ['__str__']
     list_editable = [
         "last_loc",
-        "delivered"
+        "delivered",
+        'cost'
     ]
     actions = [
         "export_as_csv",
