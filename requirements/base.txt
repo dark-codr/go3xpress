@@ -26,7 +26,7 @@ readtime==1.1.1
 django-admin-honeypot==1.1.0 # https://pypi.org/project/django-admin-honeypot/
 django-jet2==1.0.12
 feedparser==6.0.8
-google-api-python-client==1.4.1
+google-api-python-client==2.49.0
 
 # WYSIWYG Editor
 # django-tinymce4-lite==1.8.0
