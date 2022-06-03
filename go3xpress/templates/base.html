@@ -21,6 +21,17 @@
     {% compress css %}
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
     {% endcompress %}
+    <script src="https://cdn.tiny.cloud/1/shum1rw6f0vyum7x5yoq6onkn8nzjh0qlolq5q3v7zkcfo52/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script type="application/javascript">
+        tinymce.init({
+          selector: 'textarea',
+          plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
+          toolbar: 'undo redo | styles | bold italic | a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
+          toolbar_mode: 'floating',
+          tinycomments_mode: 'embedded',
+        });
+      </script>
+
     {% endblock %}
     <!-- Le javascript
     ================================================== -->

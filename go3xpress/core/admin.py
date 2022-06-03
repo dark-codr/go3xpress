@@ -3,7 +3,12 @@ from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from parler.admin import TranslatableAdmin
 from go3xpress.utils.export_as_csv import ExportCsvMixin
-from .models import Currency, Delivery, DeliveryHistory, Privacy
+from .models import Currency, Delivery, DeliveryHistory, Items, Privacy
+
+class ItemsInline(admin.TabularInline):
+    model = Items
+    extra = 1
+    show_change_link = True
 
 
 admin.site.register(Privacy)
@@ -29,12 +34,12 @@ admin.site.register(Currency, TranslatableAdmin)
 
 class DeliveryAdmin(admin.ModelAdmin, ExportCsvMixin):
     model = Delivery
+    inlines = [ItemsInline]
     list_per_page = 250
     empty_value_display = '-empty-'
     search_fields = ["__str__"]
     list_display = [
         '__str__',
-        "item_name",
         "last_loc",
         "cost",
         # "variation_active",

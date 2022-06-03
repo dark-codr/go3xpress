@@ -19,7 +19,7 @@
     <div class="space-y-2 w-full h-min pb-6 pt-6 border-t-2">
       <div class="w-full justify-between flex items-center">
         <strong class="flex text-base font-black">NAME</strong>
-        <span class="flex text-right">{{object.item_name|title}}</span>
+        <span class="flex text-right font-black">International Delivery</span>
       </div>
       <div class="w-full justify-between flex items-center border-b-2 pb-3">
         <strong class="flex text-base font-black">TRACKING NO.</strong>
@@ -35,7 +35,7 @@
       </div>
       <div class="w-full justify-between flex items-center border-b-2 pb-3">
         <strong class="flex text-base font-black">STATUS</strong>
-        <span class="flex font-black text-right">{% if object.delivered %}DELIVERED{% elif object.held %}HELD{% elif object.delayed %}DELAYED{% else %}ON TRANSIT{% endif %}</span>
+        <span class="flex font-black text-right">{% if object.delivered %}DELIVERED{% elif object.held %}HELD{% else %}ON TRANSIT{% endif %}</span>
       </div>
       <div class="w-full justify-between flex items-center">
         <strong class="flex text-sm font-black">SENDER NAME</strong>

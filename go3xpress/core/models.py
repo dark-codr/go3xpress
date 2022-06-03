@@ -56,7 +56,7 @@ def get_date():
 
 class Privacy(TimeStampedModel):
     title = CharField(max_length=255, unique=True)
-    content = HTMLField(blank=True, null=True)
+    content = TextField(blank=True, null=True)
     is_active = BooleanField(default=True)
 
     def __str__(self):
@@ -85,19 +85,16 @@ class Delivery(TimeStampedModel):
     receiver_phone = CharField(_("Receiver Phone"), max_length=13, null=True, blank=True)
     receiver_email = EmailField(_("Receiver Email"), null=True, blank=True,)
 
-
     tracking = CharField(_("Tracking Number"), max_length=50, null=True, blank=True)
 
     services = CharField(_("Shipping Services"), max_length=500, null=True, blank=True, choices=SERVICES, default="International Delivery")
 
-    item_name = CharField(_("Item Name"), max_length=500, null=True, blank=True)
     quantity = IntegerField(_("Quantity"), default=1)
     weight = FloatField(_("Weight"), default=1.00)
     from_loc = CharField(_("Pickup Address"), max_length=500, null=True, blank=True)
     to_loc = CharField(_("Dropoff Address"), max_length=500, null=True, blank=True)
 
     last_loc = CharField(_("Last Location"), max_length=500, null=True, blank=True)
-
 
     # admin fields
     when_to_deliver = DateTimeField(_("Delivery Date"), default=get_date)
@@ -106,13 +103,12 @@ class Delivery(TimeStampedModel):
 
     cost = DecimalField(_("Shipping Cost"), decimal_places=2, max_digits=20, default=0.00)
 
-
     delivered = BooleanField(default=False)
     delayed = BooleanField(default=False)
     held = BooleanField(default=False)
 
     def __str__(self):
-        return self.item_name
+        return f"{self.sender_name} - {self.receiver_name}"
 
     def delayed(self):
         if timezone.now() > self.when_to_deliver or self.held:
@@ -121,7 +117,6 @@ class Delivery(TimeStampedModel):
             return True
         else:
             return False
-
 
     class Meta:
         managed = True
@@ -138,12 +133,28 @@ class Delivery(TimeStampedModel):
         """
         return reverse("items:detail", kwargs={"tracking": self.tracking})
 
+    def all_items(self):
+        return self.items_set.all()
+
 
     def get_update_url(self):
         return f"{self.get_absolute_url}/update"
 
     def get_delete_url(self):
         return f"{self.get_absolute_url}/delete"
+
+class Items(TimeStampedModel):
+    delivery = ForeignKey(Delivery, on_delete=CASCADE)
+    item_name = CharField(_("Item Name"), max_length=500, null=True, blank=True)
+    content = TextField(blank=True, null=True)
+    weight = FloatField(_("Weight"), default=1.00)
+
+    def __str__(self):
+        return self.item_name
+
+    class Meta:
+        verbose_name = "Item"
+        verbose_name_plural = "Items"
 
 
 class DeliveryHistory(models.Model):

@@ -9,7 +9,7 @@
 {% block content %}
 <section class="relative w-screen h-min py-10 px-3 md:px-14 bg-variant-2">
   <div class="w-full h-min text-white pt-20">
-    <h1 class="text-3xl font-black flex flex-row items-start space-x-4"><span class="block">{{ object.item_name|upper }}</span> <span class="text-sm text-white/80 block"><strong class="block">Departed on</strong><small class="block">{{object.departure_date|date:"d M, Y"}}</small></span></h1>
+    <h1 class="text-3xl font-black flex flex-row items-start space-x-4"><span class="block">International Delivery </span> <span class="text-sm text-white/80 block"><strong class="block">Departed on</strong><small class="block">{{object.departure_date|date:"d M, Y"}}</small></span></h1>
   </div>
 </section>
 <section class="md:flex md:flex-row flex-col md:space-y-0 space-y-6 md:space-x-6 px-3 md:px-14 py-32">
@@ -20,7 +20,7 @@
     <div class="space-y-2 w-full h-min pb-6 pt-6 border-t-2">
       <div class="w-full justify-between flex items-center">
         <strong class="flex text-base font-black">NAME</strong>
-        <span class="flex text-right">{{object.item_name|title}}</span>
+        <span class="flex text-right font-black">International Delivery</span>
       </div>
       <div class="w-full justify-between flex items-center border-b-2 pb-3">
         <strong class="flex text-base font-black">TRACKING NO.</strong>
@@ -80,19 +80,34 @@
   </div>
 
   <div class="bg-variant-2/60 text-dark md:flex-grow w-full rounded-md shadow-md p-6 space-y-4">
-    <h2 class="text-2xl font-dark">ITEM LOCATION HISTORY</h2>
-    <div class="space-y-2 w-full h-min pb-6 pt-6 border-t-2">
-      <div class="w-full justify-between flex items-center border-b-2 pb-3">
-        <strong class="flex text-base font-black">CURRENT LOC.</strong>
-        <span class="flex">{{object.last_loc|title}}</span>
+    <div class="w-full space-y-4">
+      <h2 class="text-2xl font-dark">ITEM DETAIL(S)</h2>
+      <div class="space-y-2 w-full h-min pb-6 pt-6 border-t-2">
+        {% for it in object.all_items %}
+        <div class="w-full space-x-6 flex items-start last:border-b-2 last:pb-3">
+          <strong class="flex w-6 text-base font-black">{{forloop.counter}}.</strong>
+          <strong class="flex w-1/4 uppercase">{{it.item_name}}</strong>
+          <span class="flex w-2/4">{{it.content|safe}}</span>
+          <span class="flex w-6">{{it.weight}}kg</span>
+        </div>
+        {% endfor %}
       </div>
-      {% for it in track_history %}
-      <div class="w-full justify-between flex items-center last:border-b-2 last:pb-3">
-        <strong class="flex text-base font-black">LAST LOC {{forloop.counter}}.</strong>
-        <span class="flex">{{it.last_loc}}</span>
-        <span class="flex">{{it.date|date:"d M, Y"}}</span>
+    </div>
+    <div class="w-full space-y-4">
+      <h2 class="text-2xl font-dark">ITEM LOCATION HISTORY</h2>
+      <div class="space-y-2 w-full h-min pb-6 pt-6 border-t-2">
+        <div class="w-full justify-between flex items-center border-b-2 pb-3">
+          <strong class="flex text-base font-black">CURRENT LOC.</strong>
+          <span class="flex">{{object.last_loc|title}}</span>
+        </div>
+        {% for it in track_history %}
+        <div class="w-full justify-between flex items-center last:border-b-2 last:pb-3">
+          <strong class="flex text-base font-black">LAST LOC {{forloop.counter}}.</strong>
+          <span class="flex">{{it.last_loc}}</span>
+          <span class="flex">{{it.date|date:"d M, Y"}}</span>
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
   </div>
 
