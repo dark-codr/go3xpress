@@ -75,7 +75,7 @@ ADMIN_MEDIA_PREFIX = STATIC_URL + "admin/"
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email
 DEFAULT_FROM_EMAIL = env(
     "DJANGO_DEFAULT_FROM_EMAIL",
-    default="Go3xpress <noreply@go3xpress.com>",
+    default="Go3xpress <go3xpress@encryptfinance.net>",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#server-email
 SERVER_EMAIL = env("DJANGO_SERVER_EMAIL", default=DEFAULT_FROM_EMAIL)
