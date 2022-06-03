@@ -163,7 +163,7 @@ class DeliveryHistory(models.Model):
     last_loc = CharField(_("Last Location"), max_length=500, null=True, blank=True)
 
     def __str__(self):
-        return self.delivery.item_name
+        return self.delivery
 
 class Currency(TimeStampedModel):
     NGN = "NGN"
