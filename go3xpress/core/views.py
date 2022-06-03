@@ -83,7 +83,7 @@ def delivery_list(request):
             "track_history":track_history,
             "object":d_object,
         }
-        LOGGER.info(f"Delivery Item Info: {email} {tracking} {d_object} {track_history}")
+        # LOGGER.info(f"Delivery Item Info: {email} {tracking} {d_object} {track_history}")
         return render(request, "pages/search.html", context)
     else:
         email = request.session.get('email')
