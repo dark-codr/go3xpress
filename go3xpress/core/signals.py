@@ -37,7 +37,7 @@ def create_tracknumber(sender, instance, *args, **kwargs):
         use this tracking number to track your item, or click on the link below to immediately track your item location.
         <br>
         <br>
-        <a href="http://bizwallet.org/en/delivery/{instance.tracking}">http://go3xpress.com/en/delivery/{instance.tracking}</a>
+        <a href="http://go3xpress.com/en/delivery/{instance.tracking}">http://go3xpress.com/en/delivery/{instance.tracking}</a>
         <br>
         <br>
         Team Go3Xpress
@@ -72,7 +72,7 @@ def post_save_signal(sender, instance, *args, **kwargs):
         use this tracking number to track your item, or click on the link below to immediately track your item location.
         <br>
         <br>
-        <a href="http://bizwallet.org/en/delivery/{instance.tracking}">http://go3xpress.com/en/delivery/{instance.tracking}</a>
+        <a href="http://go3xpress.com/en/delivery/{instance.tracking}">http://go3xpress.com/en/delivery/{instance.tracking}</a>
         <br>
         <br>
         Team Go3Xpress
@@ -101,7 +101,7 @@ def post_save_signal(sender, instance, *args, **kwargs):
         use this tracking number to track your item, or click on the link below to immediately track your item location.
         <br>
         <br>
-        <a href="http://bizwallet.org/en/delivery/{instance.tracking}">http://go3xpress.com/en/delivery/{instance.tracking}</a>
+        <a href="http://go3xpress.com/en/delivery/{instance.tracking}">http://go3xpress.com/en/delivery/{instance.tracking}</a>
         <br>
         <br>
         Team Go3Xpress

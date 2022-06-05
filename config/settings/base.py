@@ -309,7 +309,7 @@ ADMIN_URL = "portal/"
 ADMIN_DOC_URL = "portal/doc/"
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
-ADMINS = [("""Gary Hales""", "go3xpress@encryptfinance.net")]
+ADMINS = [("""Gary Hales""", "noreply@go3xpress.comt")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
 
